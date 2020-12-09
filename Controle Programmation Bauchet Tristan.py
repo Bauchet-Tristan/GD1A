@@ -2,9 +2,9 @@ import random
 nombre_aleatoire = random.randint(0,9)
 
 i = 0
-x = 0
 
-motchoisi = ["c","i","t","r","o","n"]
+
+motchoisi = ["c","i","t","t","o","n"]
 print(motchoisi)
 
 grille = ["*","*","*","*","*","*"]
@@ -15,7 +15,7 @@ mot_joueur = ["1","2","3","4","5","6"]
 
 
 def compare_mot():
-
+    x = 0
     for i in range (0,6): #len = longueur du mot
 
         if mot_joueur[i] in motchoisi[i]:
@@ -25,16 +25,15 @@ def compare_mot():
             grille[i] = mot_joueur[i]
 
         else :
-
-
             if mot_joueur[i] in motchoisi[1] or mot_joueur[i] in motchoisi[2] or mot_joueur[i] in motchoisi[3] or mot_joueur[i] in motchoisi[4] or mot_joueur[i] in motchoisi[5]:
-
+                print("la lettre",i+1,"n'est pas au bonne endroit")
                 for a in range (0,6):
 
-                    if mot_joueur[i] in motchoisi[a] :
+                    if mot_joueur[i] in motchoisi[a]:
+
                         x = x+1
-                        print("la lettre",i+1,"n'est pas au bonne endroit")
-                        print("la lettre",i+1"est presente",x,"fois dans le mot")
+
+                print("la lettre",i+1,"est presente",x,"fois dans le mot")
 
             else :
                 print("lettre",i+1,"fausse")
