@@ -123,7 +123,7 @@ if (nombre_aleatoire == 9):
 
 print(motchoisi)
 
-while i <= 8 :
+while i <= 7 :
     i=i+1
     lettre_mot()
     compare_mot()
@@ -132,9 +132,9 @@ while i <= 8 :
         print ("bravo vous avez win")
         i=9;
     else :
-        print("Réessayer :D")
-
-if (i == 8):
-    print("perdu")
+        if (i == 8):
+            print("perdu")
+        else :
+            print("Réessayer :D")
 
 input()
