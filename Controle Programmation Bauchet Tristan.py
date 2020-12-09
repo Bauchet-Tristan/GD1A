@@ -123,14 +123,18 @@ if (nombre_aleatoire == 9):
 
 print(motchoisi)
 
-while i != 8 :
+while i <= 8 :
     i=i+1
     lettre_mot()
     compare_mot()
     #victoire ?
     if grille == motchoisi :
         print ("bravo vous avez win")
-        i=8;
+        i=9;
     else :
         print("Réessayer :D")
-print("perdu,cheeh !")
+
+if (i == 8):
+    print("perdu")
+
+input()
