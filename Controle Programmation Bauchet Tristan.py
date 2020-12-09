@@ -1,45 +1,78 @@
 import random
-nombre_aleatoire = random.randint(0,9)
+
+from colorama import init
+init()
+from colorama import Fore, Back, Style
+
 
 i = 0
-
-
-motchoisi = ["c","i","t","t","o","n"]
-print(motchoisi)
 
 grille = ["*","*","*","*","*","*"]
 
 mot_joueur = ["1","2","3","4","5","6"]
 
+nombre_aleatoire = random.randint(0,9)
+
 
 
 
 def compare_mot():
-    x = 0
+
     for i in range (0,6): #len = longueur du mot
+        x1 = 0
+        x2 = 0
 
         if mot_joueur[i] in motchoisi[i]:
 
-            print("lettre",i+1,"vrai")
-
             grille[i] = mot_joueur[i]
 
-        else :
+            print("La lettre",end=" ")
+            print(Fore.RED + mot_joueur[i],end=" ")
+            print(Style.RESET_ALL,end="")
+            print("est bien placé")
+
             if mot_joueur[i] in motchoisi[1] or mot_joueur[i] in motchoisi[2] or mot_joueur[i] in motchoisi[3] or mot_joueur[i] in motchoisi[4] or mot_joueur[i] in motchoisi[5]:
-                print("la lettre",i+1,"n'est pas au bonne endroit")
                 for a in range (0,6):
 
                     if mot_joueur[i] in motchoisi[a]:
 
-                        x = x+1
+                        x1 = x1+1
 
-                print("la lettre",i+1,"est presente",x,"fois dans le mot")
+                print("La lettre",end=" ")
+                print(Fore.RED + mot_joueur[i],end=" ")
+                print(Style.RESET_ALL,end="")
+                print("est presente",x1,"fois dans le mot")
+
+
+        else :
+
+            if mot_joueur[i] in motchoisi[1] or mot_joueur[i] in motchoisi[2] or mot_joueur[i] in motchoisi[3] or mot_joueur[i] in motchoisi[4] or mot_joueur[i] in motchoisi[5]:
+                print("La lettre",end=" ")
+                print(Fore.YELLOW + mot_joueur[i],end=" ")
+                print(Style.RESET_ALL,end="")
+                print("n'est pas au bonne endroit")
+                for a in range (0,6):
+
+                    if mot_joueur[i] in motchoisi[a]:
+
+                        x2 = x2+1
+
+                print("La lettre",end=" ")
+                print(Fore.YELLOW + mot_joueur[i],end=" ")
+                print(Style.RESET_ALL,end="")
+                print("est presente",x2,"fois dans le mot")
 
             else :
-                print("lettre",i+1,"fausse")
+                print("lettre",mot_joueur[i],"fausse")
+                print("La lettre",end=" ")
+                print(Fore.BLUE + mot_joueur[i],end=" ")
+                print(Style.RESET_ALL,end="")
+                print("fausse")
 
 
-    print("les lettre  correct sont",grille)
+    print("les lettre  correct sont",end=" ")
+    print(Fore.RED,grille)
+    print(Style.RESET_ALL,end="")
 
 
 
@@ -53,8 +86,45 @@ def lettre_mot():
 
 
 
-while i != 8 :
 
+
+
+if (nombre_aleatoire == 0):
+    motchoisi = ["c","i","t","r","o","n"]
+
+if (nombre_aleatoire == 1):
+    motchoisi = ["w","a","p","i","t","i"]
+
+if (nombre_aleatoire == 2):
+    motchoisi = ["w","e","b","c","a","m"]
+
+if (nombre_aleatoire == 3):
+    motchoisi = ["w","a","s","a","b","i"]
+
+if (nombre_aleatoire == 4):
+    motchoisi = ["t","w","i","s","t","e"]
+
+if (nombre_aleatoire == 5):
+    motchoisi = ["s","w","i","n","g","s"]
+
+if (nombre_aleatoire == 6):
+    motchoisi = ["a","c","a","j","o","u"]
+
+if (nombre_aleatoire == 7):
+    motchoisi = ["a","b","u","s","e","e"]
+
+if (nombre_aleatoire == 8):
+    motchoisi = ["a","b","i","m","e","s"]
+
+if (nombre_aleatoire == 9):
+    motchoisi = ["a","b","u","t","e","z"]
+
+
+
+print(motchoisi)
+
+while i != 8 :
+    i=i+1
     lettre_mot()
     compare_mot()
     #victoire ?
@@ -62,4 +132,5 @@ while i != 8 :
         print ("bravo vous avez win")
         i=8;
     else :
-        print("alors on trouve pas le bouffe ?")
+        print("Réessayer :D")
+print("perdu,cheeh !")
